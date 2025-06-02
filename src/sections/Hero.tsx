@@ -1,11 +1,33 @@
 import Button from "@/components/Button";
+import Image from "next/image";
+import designExample1Image from "@/assets/images/design-example-1.png";
+import designExample2Image from "@/assets/images/design-example-2.png";
+import Pointer from "@/components/Pointer";
 
 export default function Hero() {
     return (
-        <section className="py-24">
-            <div className="container">
+        <section className="overflow-x-clip py-24">
+            <div className="container relative">
+                <div className="absolute -left-32 top-16 hidden lg:block">
+                    <Image
+                        src={designExample1Image}
+                        alt="Design example 1 image"
+                    />
+                </div>
+                <div className="absolute -right-64 -top-16 hidden lg:block">
+                    <Image
+                        src={designExample2Image}
+                        alt="Design example 2 image"
+                    />
+                </div>
+                <div className="absolute left-56 top-96 hidden lg:block">
+                    <Pointer name="Andrea" />
+                </div>
+                <div className="absolute -top-4 right-80 hidden lg:block">
+                    <Pointer name="Bryan" color="red" />
+                </div>
                 <div className="flex justify-center">
-                    <div className="inline-flex rounded-full bg-gradient-to-r from-purple-400 to-pink-400 px-3 py-1 text-neutral-950">
+                    <div className="lg:8xl inline-flex rounded-full bg-gradient-to-r from-purple-400 to-pink-400 px-3 py-1 text-neutral-950">
                         ✨ $7.5M seed round raised
                     </div>
                 </div>
@@ -17,7 +39,7 @@ export default function Hero() {
                     powerful features with an intuitive interface that keeps you
                     in your creative flow.
                 </p>
-                <form className="mx-auto mt-8 flex max-w-lg whitespace-nowrap rounded-full border border-white/15 p-2">
+                <form className="mx-auto mt-8 flex w-full max-w-lg rounded-full border border-white/15 p-2">
                     <input
                         type="email"
                         className="bg-transparent px-4 md:flex-1"
@@ -26,8 +48,8 @@ export default function Hero() {
                     <Button
                         type="submit"
                         variant="primary"
-                        size="sm"
                         className="whitespace-nowrap"
+                        size="sm"
                     >
                         Sign Up
                     </Button>
